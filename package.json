@@ -1,0 +1,19 @@
+{
+  "name": "@anthonykulis/weighin-api",
+  "version": "0.0.0",
+  "description": "an api server for fishing tournament weigh ins",
+  "main": "app.js",
+  "scripts": {
+    "test": "jest"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+ssh://git@github.com/anthonykulis/weighin-api.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/anthonykulis/weighin-api/issues"
+  },
+  "homepage": "https://github.com/anthonykulis/weighin-api#readme"
+}
