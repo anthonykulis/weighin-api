@@ -4,6 +4,7 @@ module.exports = function(
 ) {
   async function get(req, res, next){
     const data = await getUserById(req.params.userId)
+    if(!data) return res.send(404)
     res.send(data)
   }
 
