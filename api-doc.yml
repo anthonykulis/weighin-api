@@ -52,6 +52,10 @@ paths:
           application/json:
             schema:
               type: object
+              required:
+              - username
+              - name 
+              - phone
               properties:
                 username:
                   type: string
@@ -60,7 +64,7 @@ paths:
                 phone:
                   type: string
       responses:
-        201:
+        200:
           description: Created
           content:
             application/json:
@@ -75,6 +79,10 @@ paths:
                     type: string
                   phone:
                     type: string
+        400:
+          description: Malformed Payload                             
+        403: 
+          description: Not Authorized
   /users/{userId}:
     get:
       tags: 
@@ -96,6 +104,10 @@ paths:
                 properties:
                   id: 
                     type: string
+        '403': 
+          description: Not Authorized
+        '404': 
+          description: Not found
     put:
       tags: 
         - Users
@@ -129,6 +141,10 @@ paths:
                 properties:
                   id: 
                     type: string
+        400:
+          description: Malformed Payload                             
+        403: 
+          description: Not Authorized
 
 components:
   schemas:
