@@ -2,8 +2,10 @@
   "name": "@anthonykulis/weighin-api",
   "version": "0.0.0",
   "description": "an api server for fishing tournament weigh ins",
-  "main": "app.js",
+  "private": true,
   "scripts": {
+    "start": "node ./bin/www",
+    "dev": "nodemon ./bin/www",
     "test": "jest"
   },
   "repository": {
@@ -15,5 +17,21 @@
   "bugs": {
     "url": "https://github.com/anthonykulis/weighin-api/issues"
   },
-  "homepage": "https://github.com/anthonykulis/weighin-api#readme"
+  "homepage": "https://github.com/anthonykulis/weighin-api#readme",
+  "dependencies": {
+    "cookie-parser": "^1.4.6",
+    "dotenv": "^16.3.1",
+    "express": "^4.18.2",
+    "express-openapi": "^12.1.3",
+    "express-openapi-validator": "^5.0.6",
+    "mongodb": "^6.0.0",
+    "morgan": "^1.10.0",
+    "swagger-ui-express": "^5.0.0",
+    "yamljs": "^0.3.0"
+  },
+  "devDependencies": {
+    "debug": "^4.3.4",
+    "jest": "^29.7.0",
+    "nodemon": "^3.0.1"
+  }
 }
