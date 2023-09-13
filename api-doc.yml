@@ -1,0 +1,150 @@
+---
+openapi: 3.0.2
+info:
+  title: Weighin API
+  version: "1.0"
+servers:
+  - url: http://localhost:3000/api/v1
+    description: local dev
+paths:
+  /healthcheck:
+    get:
+      tags:
+        - Maintainence Endpoints
+      operationId: getHealthcheck
+      description: A simple healthcheck
+      responses:
+        "201":
+          description: OK
+  /users:
+    get:
+      tags: 
+        - Users
+      description: Gets list of users
+      operationId: getUsers
+      parameters: []
+      responses:
+        200:
+          description: OK
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  type: object
+                  properties:
+                    id:
+                      type: string
+                    username:
+                      type: string
+                    name:
+                      type: string
+                    phone:
+                      type: string
+    post:
+      tags: 
+        - Users
+      description: Adds a new user
+      operationId: postUser
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                username:
+                  type: string
+                name:
+                  type: string
+                phone:
+                  type: string
+      responses:
+        201:
+          description: Created
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  id:
+                    type: string
+                  username:
+                    type: string
+                  name:
+                    type: string
+                  phone:
+                    type: string
+  /users/{userId}:
+    get:
+      tags: 
+        - Users
+      description: Get a user by ID
+      parameters:
+        - in: path
+          name: userId
+          schema: 
+            type: string
+          required: true
+      responses:
+        '200':
+          description: Found
+          content:
+            application/json:
+              schema:
+                type: object 
+                properties:
+                  id: 
+                    type: string
+    put:
+      tags: 
+        - Users
+      description: Updates a user by ID
+      parameters:
+        - in: path
+          name: userId
+          schema: 
+            type: string
+          required: true
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                username:
+                  type: string
+                name:
+                  type: string
+                phone:
+                  type: string
+      responses:
+        '200':
+          description: Updated
+          content:
+            application/json:
+              schema:
+                type: object 
+                properties:
+                  id: 
+                    type: string
+
+components:
+  schemas:
+    BadRequestError:
+      type: object
+      properties:
+        message:
+          type: string
+        errors:
+          type: array
+          items:
+            type: object
+            properties:
+              errorCode:
+                type: string
+              message:
+                type: string
+              path:
+                type: string
